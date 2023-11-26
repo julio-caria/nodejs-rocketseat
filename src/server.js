@@ -21,11 +21,12 @@ const server = http.createServer((req, res) => {
         password: 'psw123'
       })
 
-      return res.end('Usuário criado com sucesso')
+      return res.writeHead(201).end()
     } catch (error) {
       return res.status(500).send();
     }
   }
+  return res.writeHead(404).end();
 })
 
 server.listen(3333);
